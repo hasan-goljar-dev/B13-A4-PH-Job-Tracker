@@ -52,7 +52,9 @@ function switchTab(tab) {
 const totalStat = document.getElementById("state-total");
 const interviewState = document.getElementById("state-interview");
 const rejectedState = document.getElementById("state-rejected");
-const Update = document.querySelectorAll(".state-applied");
+
+
+
 const availableState = document.getElementById("available");
 
 totalStat.innerText = allContainer.children.length;
@@ -68,14 +70,18 @@ document.getElementById("jobs-container")
         const card = clickedElement.closest(".card");
         const parent = card.parentNode;
         if (clickedElement.classList.contains("interview")) {
-            // Update.classList = "badge badge-soft badge-success mb-2"
-            Update.innerText = "Interview"
+            const badge = card.querySelector(".state-applied");
+
+            badge.innerText = "Interview";
+
             interviewContainer.appendChild(card);
             updateState()
         }
         if (clickedElement.classList.contains("rejected")) {
-            // Update.classList = "badge badge-soft badge-error mb-2"
-            Update.innerText = "Rejected"
+            const badge = card.querySelector(".state-applied");
+
+            badge.innerText = "Rejected";
+
             rejectedContainer.appendChild(card);
             updateState()
         }
